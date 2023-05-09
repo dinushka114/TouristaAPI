@@ -29,7 +29,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 
 app.get("/", (req, res) => {
-    res.send("Server running");
+    res.send("Server is running");
 });
 
 app.listen(PORT, () => {
