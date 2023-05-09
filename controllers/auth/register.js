@@ -4,7 +4,7 @@ const User = require("../../database/models/User");
 const userSignUp = async (req, role, res) => {
     try {
 
-        let avatar = "http://localhost:3001/uploads/";
+        let avatar = "https://tourista.onrender.com/uploads/";
 
         if (req.file) {
             avatar += req.file.originalname;
