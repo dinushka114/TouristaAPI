@@ -6,6 +6,7 @@ const User = require("../../database/models/User");
 const userLogin = async (req, role, res) => {
     let { email, password } = req;
 
+
     const user = await User.findOne({ email });
 
     if (!user) {

@@ -6,7 +6,8 @@ require('dotenv').config()
 
 const db_connection = require("./database/index");
 
-const authRoute = require("./routes/auth/auth")
+const authRoute = require("./routes/auth/auth");
+const userRoute = require("./routes/user/user");
 
 const PORT = process.env.PORT;
 
@@ -20,14 +21,17 @@ app.use(
         extended: true,
     })
 );
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/api/auth", authRoute);
+app.use("/api/user", userRoute);
 
 app.get("/", (req, res) => {
     res.send("Server running");
 });
 
-app.listen(PORT , ()=>{
+app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
 })

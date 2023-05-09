@@ -1,6 +1,7 @@
 const userLogin = require("../../controllers/auth/login");
 const { userSignUp } = require("../../controllers/auth/register");
 const multer = require("multer");
+const { userAuth, checkRole } = require("../../middlewares");
 
 const router = require("express").Router();
 
@@ -23,5 +24,7 @@ router.post('/register-user' , upload.single("avatar"), async (req,res)=>{
 router.post('/login-user' , async(req,res)=>{
     await userLogin(req.body , "User" , res);
 })
+
+
 
 module.exports = router;
